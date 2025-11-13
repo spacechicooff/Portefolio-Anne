@@ -7,5 +7,8 @@ const nextConfig = {
     unoptimized: true,
   },
 }
+module.exports = {
+  basePath: '',
+}
 
 export default nextConfig
