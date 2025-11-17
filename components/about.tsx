@@ -78,7 +78,7 @@ export default function About() {
         {/* Certifications */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-foreground mb-6">Certifications</h3>
-          <div className="bg-card rounded-lg border border-border p-6 hover:border-accent transition-all duration-300">
+          <div className="bg-card/80 rounded-lg border border-border p-6 hover:border-accent transition-all duration-300">
             <p className="text-sm text-muted-foreground">
               I successfully passed the ICDL (International Computer Driving Licence) certification with a score of 75%. This internationally recognized credential validates core digital skills, including word processing, spreadsheets, and IT security. It demonstrates my ability to use essential computer applications effectively in a professional context.
             </p>
@@ -86,13 +86,15 @@ export default function About() {
               <Image src="/images/icdl.png" alt="ICDL" width={64} height={64} />
             </div>
           </div>
-            <div className="flex items-center justify-center gap-6 mt-6">
-              <Image src="/images/AiLogo.png" alt="Adobe Illustrator" width={64} height={64} />
-              <Image src="/images/IdLogo.png" alt="Adobe InDesign" width={64} height={64} />
-              <Image src="/images/ExcelLogo.png" alt="Microsoft Excel" width={64} height={64} />
-              <Image src="/images/PptLogo.png" alt="Microsoft PowerPoint" width={64} height={64} />
-              <Image src="/images/WordLogo.png" alt="Microsoft Word" width={64} height={64} />
-              <Image src="/images/PsLogo.png" alt="Adobe Photoshop" width={64} height={64} />
+            <div className="mt-6 flex justify-center">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8">
+                <Image src="/images/AiLogo.png" alt="Adobe Illustrator" width={64} height={64} className="mx-auto" />
+                <Image src="/images/IdLogo.png" alt="Adobe InDesign" width={64} height={64} className="mx-auto" />
+                <Image src="/images/ExcelLogo.png" alt="Microsoft Excel" width={64} height={64} className="mx-auto" />
+                <Image src="/images/PptLogo.png" alt="Microsoft PowerPoint" width={64} height={64} className="mx-auto" />
+                <Image src="/images/WordLogo.png" alt="Microsoft Word" width={64} height={64} className="mx-auto" />
+                <Image src="/images/PsLogo.png" alt="Adobe Photoshop" width={64} height={64} className="mx-auto" />
+              </div>
             </div>
         </div>
       </div>

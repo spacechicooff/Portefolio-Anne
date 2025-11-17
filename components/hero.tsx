@@ -2,7 +2,17 @@
 
 import Image from "next/image"
 
-export default function Hero() {
+interface HeroProps {
+  onNavigate?: (section: string) => void
+}
+
+export default function Hero({ onNavigate }: HeroProps) {
+  const handleViewWork = () => {
+    if (onNavigate) {
+      onNavigate("experiences")
+    }
+  }
+
   return (
     <section className="relative py-16 md:py-24 bg-background overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
@@ -25,7 +35,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
-                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={handleViewWork}
                 className="px-8 py-3 bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all duration-200 hover:shadow-lg"
               >
                 View My Work

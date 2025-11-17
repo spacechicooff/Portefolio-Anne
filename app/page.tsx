@@ -16,7 +16,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       <main>
-        {activeSection === "hero" && <Hero />}
+        {activeSection === "hero" && <Hero onNavigate={setActiveSection} />}
         {activeSection === "about" && <About />}
         {activeSection === "experiences" && <Experiences />}
         {activeSection === "education" && <Education />}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Award, Star, Users, CheckCircle, TrendingUp } from "lucide-react"
+import { ChevronDown, Award, Star, Users, CheckCircle, TrendingUp } from 'lucide-react'
 
 const experiences = [
   {
@@ -91,131 +91,134 @@ export default function Experiences() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="mb-16 md:mb-24">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="flex-1">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-3">
-                Professional Experience
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Expert in event coordination and VIP hosting, combining organization, high-end client relations, and operational management for international projects.
-              </p>
-            </div>
-          </div>
-          <div className="h-1 w-20 bg-linear-to-r from-accent via-accent to-accent/30 rounded-full" />
-        </div>
-
-        <div className="space-y-6 mb-24">
-          {experiences.map((exp, index) => (
-            <div key={index} className="group relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-12 bottom-0 w-px bg-linear-to-b from-accent via-accent/40 to-transparent" />
-
-              {/* Timeline dot */}
-              <div className="absolute left-0 top-5 w-12 h-12 flex items-center justify-center">
-                <div className="absolute inset-0 bg-accent/10 rounded-full animate-pulse" />
-                <div
-                  className={`relative w-4 h-4 rounded-full border-2 ${
-                    exp.type === "current" ? "bg-accent border-accent" : "bg-background border-accent"
-                  }`}
-                />
+    <section className="py-16 md:py-24 bg-background w-full overflow-x-hidden">
+      <div className="w-full px-4 sm:px-6 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12 md:mb-16 lg:mb-24">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="flex-1 min-w-0">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-3">
+                  Professional Experience
+                </h1>
+                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                  Expert in event coordination and VIP hosting, combining organization, high-end client relations, and operational management for international projects.
+                </p>
               </div>
+            </div>
+            <div className="h-1 w-20 bg-gradient-to-r from-accent via-accent to-accent/30 rounded-full" />
+          </div>
 
-              {/* Card */}
-              <button onClick={() => toggleExpanded(index)} className="w-full text-left ml-20 group">
-                <div className="p-8 border border-border rounded-xl hover:border-accent/60 transition-all duration-300 hover:shadow-lg hover:bg-muted/30 backdrop-blur-sm">
-                  {/* Header with title and badge */}
-                  <div className="flex justify-between items-start gap-4 mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
-                          {exp.title}
-                        </h3>
-                        {exp.type === "current" && (
-                          <span className="px-3 py-1 text-xs font-bold bg-accent text-accent-foreground rounded-full uppercase tracking-wider">
-                            Current Role
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Company and period */}
-                      <div className="flex flex-wrap items-center gap-4 mb-3">
-                        <span className="text-lg font-semibold text-accent">{exp.company}</span>
-                        <span className="text-sm text-muted-foreground flex items-center gap-2">
-                          <span className="inline-block w-1.5 h-1.5 bg-border rounded-full" />
-                          {exp.period}
-                        </span>
-                      </div>
-                    </div>
-
-                    <ChevronDown
-                      size={24}
-                      className={`text-accent shrink-0 transition-all duration-300 ${
-                        expandedIndex === index ? "rotate-180" : ""
+          <div className="space-y-4 md:space-y-6 mb-24">
+            {experiences.map((exp, index) => (
+              <div key={index} className="group w-full">
+                {/* Timeline line and dot - simplified for responsive */}
+                <div className="flex gap-4 md:gap-6">
+                  <div className="flex flex-col items-center flex-shrink-0 pt-2">
+                    <div
+                      className={`w-3 h-3 md:w-4 md:h-4 rounded-full border-2 ${
+                        exp.type === "current" ? "bg-accent border-accent" : "bg-background border-accent"
                       }`}
                     />
+                    {index !== experiences.length - 1 && (
+                      <div className="w-px h-24 md:h-32 bg-gradient-to-b from-accent/60 to-transparent mt-2" />
+                    )}
                   </div>
 
-                  {/* Main description */}
-                  <p className="text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
+                  {/* Card content */}
+                  <button onClick={() => toggleExpanded(index)} className="w-full text-left pb-4">
+                    <div className="p-4 md:p-6 lg:p-8 border border-border rounded-lg md:rounded-xl hover:border-accent/60 transition-all duration-300 hover:shadow-lg hover:bg-muted/30 backdrop-blur-sm">
+                      {/* Header with title and badge */}
+                      <div className="flex flex-col sm:flex-row justify-between items-start gap-3 md:gap-4 mb-3 md:mb-4">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 flex-wrap">
+                            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300 break-words">
+                              {exp.title}
+                            </h3>
+                            {exp.type === "current" && (
+                              <span className="px-2 md:px-3 py-1 text-xs font-bold bg-accent text-accent-foreground rounded-full uppercase tracking-wider flex-shrink-0">
+                                Current
+                              </span>
+                            )}
+                          </div>
 
-                  {/* Image (if exists) */}
-                  {exp.image && (
-                    <div className="mb-4">
-                      <img
-                        src={exp.image}
-                        alt={`${exp.title} at ${exp.company}`}
-                        className="w-1/2 max-h-58 rounded-lg object-cover"
-                      />
-                    </div>
-                  )}
-
-                  {/* Expanded content */}
-                  {expandedIndex === index && (
-                    <div className="mt-8 pt-8 border-t border-border/50 space-y-6 animate-in fade-in slide-in-from-top-2 duration-500">
-                      {/* Highlights */}
-                      <div>
-                        <h4 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4 flex items-center gap-2">
-                          <TrendingUp size={16} className="text-accent" />
-                          Key Achievements
-                        </h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {exp.highlights.map((highlight, i) => (
-                            <div
-                              key={i}
-                              className="flex items-start gap-3 p-3 bg-accent/5 rounded-lg border border-accent/20"
-                            >
-                              <CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />
-                              <span className="text-sm text-foreground">{highlight}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Skills */}
-                      <div>
-                        <h4 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">
-                          Skills Used
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, i) => (
-                            <span
-                              key={i}
-                              className="px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-medium rounded-full border border-accent/30 transition-all duration-200"
-                            >
-                              {skill}
+                          {/* Company and period */}
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 md:gap-4 text-sm md:text-base">
+                            <span className="font-semibold text-accent">{exp.company}</span>
+                            <span className="text-xs md:text-sm text-muted-foreground flex items-center gap-2">
+                              <span className="inline-block w-1 h-1 md:w-1.5 md:h-1.5 bg-border rounded-full flex-shrink-0" />
+                              {exp.period}
                             </span>
-                          ))}
+                          </div>
                         </div>
+
+                        <ChevronDown
+                          size={20}
+                          className={`text-accent flex-shrink-0 transition-all duration-300 mt-1 ${
+                            expandedIndex === index ? "rotate-180" : ""
+                          }`}
+                        />
                       </div>
+
+                      {/* Main description */}
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
+
+                      {/* Image */}
+                      {exp.image && (
+                        <div className="mb-4 overflow-hidden rounded-lg">
+                          <img
+                            src={exp.image || "/placeholder.svg"}
+                            alt={`${exp.title}`}
+                            className="w-full sm:w-1/2 max-h-48 md:max-h-64 rounded-lg object-cover"
+                          />
+                        </div>
+                      )}
+
+                      {/* Expanded content */}
+                      {expandedIndex === index && (
+                        <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-border/50 space-y-4 md:space-y-6 animate-in fade-in slide-in-from-top-2 duration-500">
+                          {/* Highlights */}
+                          <div>
+                            <h4 className="text-xs md:text-sm font-bold text-foreground uppercase tracking-widest mb-3 md:mb-4 flex items-center gap-2">
+                              <TrendingUp size={14} className="text-accent flex-shrink-0" />
+                              Key Achievements
+                            </h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                              {exp.highlights.map((highlight, i) => (
+                                <div
+                                  key={i}
+                                  className="flex items-start gap-2 md:gap-3 p-2 md:p-3 bg-accent/5 rounded-lg border border-accent/20"
+                                >
+                                  <CheckCircle size={14} className="text-accent flex-shrink-0 mt-0.5" />
+                                  <span className="text-xs md:text-sm text-foreground">{highlight}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Skills */}
+                          <div>
+                            <h4 className="text-xs md:text-sm font-bold text-foreground uppercase tracking-widest mb-3 md:mb-4">
+                              Skills Used
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.skills.map((skill, i) => (
+                                <span
+                                  key={i}
+                                  className="px-2 md:px-4 py-1 md:py-2 bg-accent/10 hover:bg-accent/20 text-accent text-xs md:text-sm font-medium rounded-full border border-accent/30 transition-all duration-200"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </button>
                 </div>
-              </button>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
