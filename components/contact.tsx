@@ -148,8 +148,8 @@ export default function Contact() {
                 <Mail size={18} className="text-accent" />
                 <span className="font-medium text-foreground">Email</span>
               </div>
-              <a href="mailto:anne.thiriet59@gmail.com" className="text-accent hover:underline text-sm">
-                anne.thiriet59@gmail.com
+              <a href="mailto:annethiriet03@gmail.com" className="text-accent hover:underline text-sm">
+                annethiriet03@gmail.com
               </a>
             </div>
             <div>

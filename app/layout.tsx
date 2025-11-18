@@ -10,7 +10,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Anne Thiriet | Marketing & Project Management",
   description:
-    "Portfolio of Anne Thiriet - EM Strasbourg Master 1 student, passionate about digital marketing and project management.",
+    "Portfolio of Anne Thiriet - EFAP Master 1 student, passionate about digital marketing and project management.",
   generator: "v0.app",
 }
 

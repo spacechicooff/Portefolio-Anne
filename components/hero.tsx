@@ -29,7 +29,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
 
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Master 1 student at EM Strasbourg. Passionate about digital strategy, strategic project execution, and
+              Master 1 student at EFAP. Passionate about digital strategy, strategic project execution, and
               building meaningful professional connections that drive real business impact.
             </p>
 
